@@ -176,6 +176,10 @@ console.log(sec, res);
 
 console.log("","",);
 
+console.log(sec, res);
+//alert("lhfgfwsr");
+console.log("%c%s", "color:red; font-size:18px;", res);
+
 
 
 
