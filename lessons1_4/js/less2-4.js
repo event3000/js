@@ -76,6 +76,7 @@ summIt(10,20);
 
 // проверка на тип данных
 function chType(a, b){
+	
 	if(typeof a !== "number" || typeof b !== "number" ){
 		console.log("Error");
 		return false;
