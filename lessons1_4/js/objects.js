@@ -1,85 +1,116 @@
-// ОБЪЕКТЫ
+(function () {
+    'use strict';
 
-(function() {
-	'use strict'; 
+    // Объекты, как ассоциативные массивы
 
-// объекты как асс-ые массивы
-// имена св-в задаем сами
-var obj = {};
+    var obj = {}; // Cоздание пустого ассоциативного массива
+    console.log("obj", obj);
 
-var user = {};
+    // В объекте можно хранить любые значения, которые называются свойствами объекта.
+    // Доступ к свойствам осуществляется по имени свойства (переменная)
 
-user.login = "user1"; // созд сво-во login со знач user1
+    // Основные операции с объектами: создание, получение и удаление свойств.
+    // Для обращения к свойствам используется запись «через точку», вида имя_объекта.имя_свойства(ключ)
+    // Удаление осуществляется оператором delete
 
- 
+    var user = {};
 
-// console.log(user.login); //  получ данные св-ва
+    user.id = 1;  // создали свойство с именем id, присвоили ему значение 1
+    user.login = 'nikname';
+    user.email = 'nikname@email.ru';
 
-// delete user.login; // удаление св-ва
+    console.log(user);
+    console.log('Имя пользователя: ', user.name);  // прочитали свойство name объекта user
+    console.log('E-mail: ', user.email);  // прочитали свойство email объекта user
 
-//есть ли св-во в объекте
-if ("login" in user) {
-	console.log(user.login);
-}
+    delete user.email; // удалили свойство email
 
+    console.log(user.email);
+    console.log(user);
 
-// обращение к св-ву через 
-console.log(user.login); // станд вар-т
-console.log(user['login']);
+    // Если нужно проверить, есть ли в объекте свойство с определенным ключом.
+    // используется оператор: "in": "имя_свойства(ключ)" in obj, имя свойства – обязательно должно быть в виде строки
 
-//  можно обратиться так через переменную
-var a = "login";
-console.log(user[a]);
+    if ("email" in user) {
+        console.log( "Свойство email существует!" );
+    }
 
-/// !!! литеральный способ созд объекта
-
-user = {
-		login: "vasya",
-		email: "afafaf@mail.ru",
-		other: 12,		
-
-};
-
-
-// var size = 9;
-// var otherSize = size;
-// var otherSize = 52525;
-// // хранение по значению
-// console.log(size, otherSize);
+    if ("login" in user) {
+        console.log( "Свойство login существует!" );
+    }
 
 
-// var horse = {
-// 		size: "big",
 
-// };
+    // Работа со свойствами  через квадратные скобки имя_объекта['имя_свойства']
+    user.phone = '459807';
+    user['phone'] = '459807';
+    console.log(user);
 
-// var pony = horse;
+    /*
+    Доступ к свойству через переменную  Квадратные скобки также позволяют обратиться к свойству, имя которого хранится в переменной
+    Доступ через точку используется, если мы на этапе написания программы уже знаем название свойства.
+    А если оно будет определено по ходу выполнения, то единственный выбор – квадратные скобки.
+    */
+    var propName = 'phone';
+    console.log(user[propName]);
 
-// Если кладем переменн - это св-во если функцию то это метод
+    // литеральный способ объявление объекта
+    // Объект можно заполнить значениями при создании, указав их в фигурных скобках
+    /*
+     var obj = {
+     имя_свойства(ключ): значение,
+     имя_свойства(ключ): значение,
+     имя_свойства(ключ): значение
+     }
+     // */
+    // Названия свойств можно перечислять как в кавычках, так и без, если они удовлетворяют ограничениям для имён переменных.
 
-user = {
-		login: "vasya",
-		func: function() {
-		console.log(this);
-		console.log(this.login);
-		console.log(user.login);  //  то же самое
-		},
-		changeName: function(new_name) {
-			this.login = new_name;
-			console.log(this.login);
-		},
-};
+    user = {
+        id: 3,
+        login: 'qwerty',
+        email: 'nikname@email.com'
+    };
+
+    // Хранение по ссылке и хранение по значению
+    // хранение по значению
+
+    var size = 9;
+    var mySize = size;     // две разных переменных
+
+    console.log('size =', size, 'mySize =', mySize);
+    mySize = 165;
+    
+    console.log('size =', size, 'mySize =', mySize);
+
+    // хранение по ссылке
+    var horse = {
+        size: 'big'
+    };
+
+    var pony = horse;   // ссылки на один объект!!!
+    console.log(pony.size);
+
+    pony.size = 'small';
+    console.log('horse.size - ' + horse.size + '\npony.size - ' + pony.size);
 
 
-console.log(user);
+    // Если в качестве свойства объекта указана функция - получаем МЕТОД объекта
+    
+    user = {
+        id: 3,
+        login: 'qwerty',
+        email: 'nikname@email.com',
+        changeLogin: function (newLogin) {
+            console.log("this", this);
+            this.login = newLogin;
+        }
+    };
 
-// this как обращение к методу объекта
+    user.changeLogin('Gosha');
+    console.log(user.login);
+
+    // this используется для получения к свойствам и методам внутри объекта (this.login === user.login)
+
+
 
 }());
-
-
- 
-
-
-
-
