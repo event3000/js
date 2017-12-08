@@ -14,10 +14,11 @@
 // 1.4. Создать объект president c методом changeCountryMayor(), благодаря которому он сможет менять мэра города (в зависимости от объекта, переданного в качестве аргумента)
 
 console.log("Задание 4-1:",);
+
 let sity1 = {
 	name: "S town",
 	population: 5000,
-	mayor: "Smith",
+	mayor: "Aron",
     nail: function(n) {
 			 sity1.population = sity1.population + n;
 			 sity2.population = sity2.population - n;
@@ -27,7 +28,7 @@ let sity1 = {
 let sity2 = new Object();
 sity2.name = "J town";
 sity2.population = 1000;
-sity2.mayor = "Jones";
+sity2.mayor = "Yakov";
 
 
 // Вызов функции, в аргументе число людей (плюс или минус)
@@ -36,31 +37,45 @@ console.log("SITY1:",sity1,"SITY2:",sity2);
 
 
 
-// Показ мэра города
-function showMayor(x){
+// Показ мэра города 1 способ
+function showMayor_oth(x){
 	if (x === sity1) {
 		return sity1.mayor;
 	} else if (x === sity2) {
 			return sity2.mayor; 			
  	} else {
- 		return "xz";
+ 		return "ошибка";
  	}
 }
-console.log("Показ мэра города:",showMayor(sity2));
 
-// Создать объект president c методом changeCountryMayor()
-// let = president {
-// 	changeCountryMayor: function(n) {
-
-// 		},
-// }
+console.log("Показ мэра города (способ 1):",showMayor_oth(sity1));
 
 
+//Показ мэра города 2 способ
+function Show(){
+  		return this.mayor;
+ };
+
+console.log("Показ мэра города (способ 2 call/apply):", Show.call(sity2));
+
+let sh = Show.bind(sity2);
+console.log("Показ мэра города (способ 2 bind):", sh());
 
 
 
 
+// Создать объект president c методом changeCountryMayor(), благодаря которому он сможет менять мэра города (в зависимости от объекта, переданного в качестве аргумента)
 
+
+let president = {
+	changeM: function(sityName, newname) {
+	return sityName.mayor = newname;
+	},
+
+};
+
+president.changeM(sity2, "Vladimir");
+console.log("Меняем мэра:", sity2);
 
 
 
@@ -70,57 +85,90 @@ console.log("Показ мэра города:",showMayor(sity2));
 // Написать функцию, которая на вход принимает строку и подстроку и ищет ВСЕ вхождения подстроки в строку
 
 
+console.log("Задание 4-2:");
+
+function search (str, subst) {
+	let pos = 0;
+
+	while (true) {
+	  let fndPos = str.indexOf(subst, pos);
+	  if (fndPos === -1)
+
+	  break;
+
+	  console.log("найдено здесь:",fndPos ); 
+	  pos = fndPos + 1; 
+	}
+}
+
+search("It was a very difficult year. Next year will be better." , "year");
+
+
+
+
 
 
 // =======================================================================
 // Задание 3 (по рядам, нумерация от окна)
-// 1 ряд: написать функцию getDataFromUser(), которая:
-// 1)получает информацию от пользователя,
-// 2)используя, функцию validateData(data, flag) - ее создает второй ряд, проверяет данные на валидность. 
-// Пример использования 
-// validateData(a, 'num') 
-// validateData(operator, 'operator')
-// validateData(b, 'num')
-// validateData(data, flag) возвращает либо true, либо false
-// В случае, если данные не валидны, пытается получить их до тех пор, пока не получит пригодные данные, 
 
-// 3)после чего возврящает их в виде массива [+a, operator, +b]
-// Данная функция сначала получает первое число, потом оператор, потом второе число.
-// Оператор нельзя начать получать, пока не получено первое валидное число, второе число нельзя начать получать, пока пользователь не введет подходящий оператор 
-// Операторы могут быть + - * /
-
-// 2 ряд: написать функцию validateData(data, flag), которая работает следующим образом:
-// 1)если flag - 'num', data проверяется на число,
-// если flag - 'operator', data провереятся на соответствие одному из операторов ('+', '-', '*' или '/')
-// 2)a и b - могут быть только числами
-// 3)если operator === /, второе число не может быть 0 
-// 4)возвращает true, в случае, если условия проверки выполняется и false, если нет
 
 // 3 ряд: написать функцию runCalculator():
+
 // 1)уточняет у пользователя, действительно ли он хочет запустить программу:
+
 // 2) в случае положительного ответа:
+
 // 2.1)получат данные из функции getDataFromUser(), вида [+a, operator, +b], например [1, "+", 5]
-// 2.2)разбивает массив на отдельные переменные 
+
+// 2.2)разбивает массив на отдельные переменные
+
 // 2.3)вызывает функцию operations(a, operator, b), передавая в качестве аргументов, переменные из п.2)
+
 // 2.4)результат работы operations выводит пользователю (для вывода использовать alert)
+
 // 3) в случае отрицательного прощается с пользователем
 
+console.log("Задание 4-3:");
+
+// создаем функцию которая которая собирает данные в массив
+function getDataFromUser(a,b,o){
+ 	let arr = [ a,b,o ];
+	return arr;
+};
+
+// калькулятор (уже был дан)
+function operations(a, operator, b) {
+	if (operator === '+') { 
+	return a + b;
+	} else if (operator === '-') { 
+	return a - b; 
+	} else if (operator === '*') { 
+	return a * b; 
+	} else return a / b; 
+}
 
 
-// function operations(a, operator, b) {
-// if (operator === '+') { 
-// return a + b;
-// } else if (operator === '-') { 
-// return a - b; 
-// } else if (operator === '*') { 
-// return a * b; 
-// } else return a / b; 
-// }
+// функция калькулятора 
+function runCalculator(){
 
+	let run  = confirm("Вы действительно хотите запустить программу?");
 
+		if (run === true) {
+			let dann = getDataFromUser(4,10,"+"); // получаем массив в переменную 
+			let a = dann[0];
+			let b = dann[1];
+			let operator = dann[2];
+			
+			alert(operations(a, operator, b)); // переменные из массива в operations
 
+	} else {
+		alert("Всего доброго, до свидания!");
+	}
 
+};
 
+// запуск функции калькулятора
+runCalculator();
 
 
 
