@@ -110,7 +110,25 @@
     console.log(user.login);
 
     // this используется для получения к свойствам и методам внутри объекта (this.login === user.login)
+    
+// ПЕРЕБОР ОБЪЕКТОВ
 
+    // let obj = {
+    //     name: "ob name" ,
+    //     id: 12,
+    //     meth: function () {
+    //            for (let key in obj) {
+    //             console.log("in obj", key, obj[key] );
+    //             }
+    //     }
+    // };
+
+  // ПЕРЕБОР ОБЪЕКТОВ
+  // var 
+  
+  //  for (let key in obj) {
+  //       console.log(key, obj[key]);
+  //   };
 
 
 }());
