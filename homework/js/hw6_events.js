@@ -29,7 +29,27 @@ function domCont(event) {
     console.log("DOMContentLoaded:", "браузер полностью загрузил HTML и построил DOM-дерево");
 };
 
-// ОСТАЛЬНЫЕ в процессе
+
+document.addEventListener("beforeunload", onbF);
+	function onbF(event) {
+	console.log("beforeunload");
+};
+
+
+let div = document.getElementById("onload");
+div.onload = onLoad;
+
+function onLoad() {
+	console.log("onload");
+};
+
+
+
+
+
+
+
+
 
 
 
