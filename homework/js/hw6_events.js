@@ -30,10 +30,15 @@ function domCont(event) {
 };
 
 
-document.addEventListener("beforeunload", onbF);
-	function onbF(event) {
-	console.log("beforeunload");
+
+window.addEventListener("beforeunload", onbF);
+	
+function onbF(event) {
+	event.preventDefault();
+	event.returnValue = "Вы точно хотите покуинуть страницу?";
+	return event.returnValue;	
 };
+
 
 
 let div = document.getElementById("onload");
@@ -42,6 +47,9 @@ div.onload = onLoad;
 function onLoad() {
 	console.log("onload");
 };
+
+
+
 
 
 
