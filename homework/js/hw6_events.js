@@ -35,7 +35,7 @@ window.addEventListener("beforeunload", onbF);
 	
 function onbF(event) {
 	event.preventDefault();
-	event.returnValue = "Вы точно хотите покуинуть страницу?";
+	event.returnValue = "Вы точно хотите покинуть страницу?";
 	return event.returnValue;	
 };
 
