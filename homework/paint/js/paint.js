@@ -13,9 +13,10 @@
 // 'mouseout' - метод handlers - endDraw
 // 'mousemove'- метод handlers - drawing
 
-// Проверьте, чтобы методы действительно отрабатывали. Во вторник будем делать из этого мини paint. Но можете попробовать реализовать его сами до вторника (надо будет почитать про рисование canvas)
+
 
 let canvas = document.getElementsByTagName("canvas")[0];
+let erase = document.getElementById("paint_eraser");  
 
 let handlers = {};
 
@@ -34,23 +35,31 @@ handlers.drawing = function() {
 		console.log("В процессе рисования");
 		let context = canvas.getContext("2d");
 		context.beginPath();
-//		context.fillStyle // заливка
-		context.strokeStyle = document.getElementById("paint_brush_color").value;
+		context.fillStyle = document.getElementById("paint_brush_color").value;
 		context.arc(event.offsetX, event.offsetY, document.getElementById("paint_brush_size").value,0,Math.PI*2, false); 
-		context.stroke(); 
-		//context.fill(); 
-
-
+		context.fill(); 
 
 	} else {
 		return;
 	}
 };
 
+handlers.erase = function () {
+	console.log("ластик - стирание");
+    var context = canvas.getContext("2d");
+		context.beginPath();
+		context.fillStyle = document.getElementById("paint_brush_color").value = "#ffffff";
+		context.arc(event.offsetX, event.offsetY, document.getElementById("paint_brush_size").value,0,Math.PI*2, false);
+		context.fill();
+    
+};
+
+
 canvas.addEventListener("mousedown", handlers.startDraw);
 canvas.addEventListener("mousemove", handlers.drawing);
 canvas.addEventListener("mouseup", handlers.endDraw);
 canvas.addEventListener("mouseout", handlers.endDraw);
+erase.addEventListener("click", handlers.erase);
 
 	
 	
