@@ -1,0 +1,21 @@
+/*  CROSS ZERO DZ   */
+
+#field-all {
+    width: 300px;
+    height: 300px;
+    background: #ffffff;
+    border: 1px solid #000000; 
+}
+
+.field-item {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    float: left;
+    border: 1px solid #000000;
+    line-height: 100px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 80px;
+    
+}
