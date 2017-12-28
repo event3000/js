@@ -31,6 +31,15 @@ function domCont(event) {
 
 
 
+// initListener() {
+// 	window.addEventListener("", this.someFunc.bind(this))
+// }
+
+// someFunc(event) {
+// 	ev.k
+// }
+
+
 window.addEventListener("beforeunload", onbF);
 	
 function onbF(event) {

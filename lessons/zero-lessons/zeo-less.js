@@ -30,7 +30,7 @@ class GameTable{
     }
 
     updateField(n) { // обновление поля
-        for (var i=0; i< n; i++) { // добавление ячеек в цикле
+        for (var i = 0; i < n; i++) { // добавление ячеек в цикле
             document.getElementById("field-all").innerHTML+='<div class="field-item"></div>';
         }
     } 
