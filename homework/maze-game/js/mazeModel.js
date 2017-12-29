@@ -21,17 +21,16 @@ class FieldModel {
     var imgData = human.canvas_context.getImageData(this.x-1, this.y-1, 15+2, 15+2);
     var pixels = imgData.data;
 
-    for (var i = 0, n = pixels.length; i < n; i += 1) {
+    for (var i = 0, n = pixels.length; i < n; i += 4) {
         var red = pixels[i];
         var green = pixels[i+1];
         var blue = pixels[i+2];
         var alpha = pixels[i+3];
         if (red == 0 && green == 0 && blue == 0) {
             return true;
-        } else {
-            return false;
-        }
-        }
+            }
+         }
+        return false;
     }
 
     set keyCode(keyCode) {
