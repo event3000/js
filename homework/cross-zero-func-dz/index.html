@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CROSS ZERO GAME</title>
+    <link rel="stylesheet" type="text/css" href="cross-zero.css">
+</head>
+
+<body>
+    <h1 class="game-title">ИГРА "КРЕСТИКИ НОЛИКИ"</h1>
+    <!-- <p class="game-title">Процесс игры:</p> -->
+    <p class="game-title" id="message">Ходит игрок X</p>
+
+    <form id="players" class="game-title">
+        <input id="player1" type="text" placeholder="Имя 1 игрока" value=""><br>
+        <input id="player2" type="text" placeholder="Имя 2 игрока" value="">
+
+    </form>
+
+
+    <div class="game">
+        <div class="game-item" data-ceil="1"></div>
+        <div class="game-item" data-ceil="2"></div>
+        <div class="game-item" data-ceil="3"></div>
+        <div class="game-item" data-ceil="4"></div>
+        <div class="game-item" data-ceil="5"></div>
+        <div class="game-item" data-ceil="6"></div>
+        <div class="game-item" data-ceil="7"></div>
+        <div class="game-item" data-ceil="8"></div>
+        <div class="game-item" data-ceil="9"></div>
+    </div>
+
+    <button id="reset-game">Очистить</button>
+
+
+    <script src="cross-zero.js" type="text/javascript"></script>
+</body>
+
+</html>

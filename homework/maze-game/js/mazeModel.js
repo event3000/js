@@ -39,7 +39,8 @@ class FieldModel {
              human.generateImage('img/clear.png', [this.x, this.y] );
              human.generateImage('img/mouse.png', [this.x, this.y + 3] );
              this.y += 3;
-         }
+         } 
+
              
         //  проверка клавиши вверх    
         if (keyCode === 38 && !this.contactWall() ) {
@@ -47,7 +48,7 @@ class FieldModel {
              human.generateImage('img/mouse.png', [this.x, this.y - 3] );
              this.y -= 3;
 
-        }
+        } 
 
         //  проверка клавиши влево    
         if (keyCode === 37 && !this.contactWall() ) {
